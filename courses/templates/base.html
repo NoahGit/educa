@@ -1,33 +1,26 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Educa{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
     <link href="{% static "css/base.css" %}" rel="stylesheet">
 </head>
 <body>
     <div id="header">
         <a href="/" class="logo">Educa</a>
-        <ul class="menu">
-            {% if request.user.is_authenticated %}
-                <li><a href="{% url "logout" %}">Sign out</a> </li>
-            {% else %}
-                <li><a href="{% url "login" %}">Sign in</a> </li>
-            {% endif %}
-        </ul>
+    </div>
+    <div style="margin-right: 20px">
+        {% if request.user.is_authenticated %}
+            Hello {{ request.user.first_name }},<a href="{% url "courses:password_change" %}">修改密码</a>
+            <a href="{% url "courses:logout" %}">Logout</a>
+        {% else %}
+            <a href="{% url "courses:login" %}">Log-in</a>
+        {% endif %}
     </div>
     <div id="content">
-        {% block content %}
+        {% block content%}
         {% endblock %}
     </div>
-
-    <script src="https://libs.cdnjs.net/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            {% block domready %}
-            {% endblock %}
-        });
-    </script>
 </body>
 </html>

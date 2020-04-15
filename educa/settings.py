@@ -119,3 +119,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = 'courses:index'
+LOGOUT_REDIRECT_URL = 'courses:index'
+LOGIN_URL = 'courses:login'
+LOGOUT_URL = 'courses:logout'
+
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_HOST_USER = 'xiangjiaotuobei@163.com'  # 填写你的邮件地址
+EMAIL_HOST_PASSWORD = 'GaoYong1983'  # 邮箱的smtp授权码
+EMAIL_PORT = 25
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+

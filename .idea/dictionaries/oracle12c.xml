@@ -2,6 +2,7 @@
   <dictionary name="oracle12c">
     <words>
       <w>educa</w>
+      <w>smtp</w>
     </words>
   </dictionary>
 </component>
