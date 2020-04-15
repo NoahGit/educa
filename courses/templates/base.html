@@ -10,7 +10,7 @@
     <div id="header">
         <a href="/" class="logo">Educa</a>
     </div>
-    <div style="margin-right: 20px">
+    <div style="position: absolute; right: 20px">
         {% if request.user.is_authenticated %}
             Hello {{ request.user.first_name }},<a href="{% url "courses:password_change" %}">修改密码</a>
             <a href="{% url "courses:logout" %}">Logout</a>
